@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="css/base.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
+        #box {
+            height: 600px;
+        }
+
+        #round {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 600px;
+            margin: 0 auto;
+            transform: rotate(0deg);
+        }
+
+        .list {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-radius: 300px;
+            border: 300px solid transparent;
+            /*border-left: 75px solid transparent;
+            border-top-left-radius: 75px;
+            border-top: 300px solid transparent;
+            border-top-right-radius: 75px;
+            border-right: 75px solid transparent;
+            border-bottom-right-radius: 300px;
+            border-bottom: 0px solid transparent;
+            border-bottom-left-radius: 300px;
+            border-top-color: skyblue;*/
+        }
+
+            .list span {
+                position: absolute;
+                top: -200px;
+                left: -50px;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+                z-index: 10;
+            }
+
+        #Go {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -5px;
+            width: 10px;
+            height: 300px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="w">
+        <div id="round">
+            <div class="list"><span>1</span></div>
+            <div class="list"><span>2</span></div>
+            <div class="list"><span>3</span></div>
+            <div class="list"><span>4</span></div>
+        </div>
+        <div id="Go"></div>
+    </div>
+</body>
+</html>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    var config = ["skyblue", "pink", "greenyellow", "yellowgreen"];
+    var lists = document.getElementById("round").children;
+    for (var i = 0; i < lists.length; i++) {
+        lists[i].style.borderTopColor = config[i];
+        lists[i].style.transform = " rotate(" + i * 90 + "deg)";
+    }
+    var timer = null;
+    $("#round").click(function () {
+        var r = parseInt(Math.random() * 20) + 20;
+        var rotate = parseInt(Math.random() * 361);
+        var leader = 0;
+        var target = r * 360 + rotate;
+        console.log(rotate);
+
+        timer = setInterval(function () {
+            var step = (target - leader) / 180;
+            leader = leader + step;
+            $("#round").css("transform", "rotate(" + leader + "deg)");
+            if (step <= 1) {
+                clearInterval(timer);
+            }
+        }, 15);
+    });
+</script>

@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <!--<base target="_blank" />-->
+    <style type="text/css">
+        .light {
+            position: absolute;
+        }
+
+        #l1 {
+            background: url(images/light_1.png) no-repeat center center;
+            width: 476px;
+            height: 72px;
+            animation: light1 3s;
+            animation-iteration-count: infinite;
+        }
+
+        #l2 {
+            background: url(images/light_2.png) no-repeat center center;
+            transform: rotate(180deg);
+            width: 476px;
+            height: 72px;
+            top: 200px;
+            animation: light2 2s;
+            animation-iteration-count: infinite;
+        }
+
+        #l3 {
+            background: url(images/light_1.png) no-repeat center center;
+            width: 476px;
+            height: 72px;
+            top: 500px;
+            animation: light1 3s;
+            animation-iteration-count: infinite;
+        }
+
+        #l4 {
+            background: url(images/light_2.png) no-repeat center center;
+            transform: rotate(180deg);
+            width: 476px;
+            height: 72px;
+            top: 400px;
+            animation: light2 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes light1 {
+            from {
+                left: 100%;
+            }
+
+            to {
+                left: -100%;
+            }
+        }
+
+        @keyframes light2 {
+            from {
+                right: 100%;
+            }
+
+            to {
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wallpaper">
+        <div id="head">
+            <div class="w clearfix">
+                <div class="fl logo"></div>
+                <div class="fr nav">
+                    <ul>
+                        <li><a href="javascript:">首页</a></li>
+                        <li><a href="Works.html">样品展示</a></li>
+                        <li><a href="HotAct.html">热门活动</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ol></ol>
+        </div>
+        <div id="foot"></div>
+    </div>
+    <audio src="audios/卡农.mp3" autoplay loop id="audio"></audio>
+    <span></span>
+    <div id="l1" class="light"></div>
+    <div id="l2" class="light"></div>
+    <div id="l3" class="light"></div>
+    <div id="l4" class="light"></div>
+</body>
+</html>
+<script src="js/animate.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    var audio = document.getElementById("audio");
+    var isStart = true;
+    $(".stop").click(function () {
+        if (isStart) {
+            isStart = false;
+            audio.pause();
+        }
+        else {
+            isStart = true;
+            audio.play();
+        }
+    });
+
+
+    // #region 获取对象、声明变量
+    var wallpaper = document.getElementById("wallpaper");
+    var main = document.getElementById("main");
+    var ul = main.children[0];
+    var lis = ul.children;
+    var liHeight = wallpaper.offsetHeight;//li的高度不能再用100%，动态获取当前可视区的高度
+    var ol = main.children[1];
+    var pic = 0;
+    var flag = true;
+    // #endregion
+
+    // #region 创建最后一个li 设置li的高度，背景图片
+    ul.appendChild(lis[0].cloneNode(true));
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].style.height = liHeight + "px";
+        lis[i].style.background = "url(images/" + (i + 1) + ".jpg) no-repeat center center";
+        lis[i].style.backgroundSize = "100% 100%";
+    }
+    lis[lis.length - 1].style.height = liHeight + "px";
+    lis[lis.length - 1].style.background = "url(images/1.jpg) no-repeat center center";
+    lis[lis.length - 1].style.backgroundSize = "100% 100%";
+    // #endregion
+
+    // #region 动态创建右侧小圆点、设置位置
+    for (var i = 0; i < lis.length - 1; i++) {
+        var li = document.createElement("li");
+        ol.appendChild(li);
+    }
+    var olLis = ol.children;
+    var olLiH = olLis[0].offsetHeight + 10;
+    olLis[0].className = "current";
+    ol.style.height = (lis.length - 1) * olLiH + "px";
+    ol.style.marginTop = -ol.offsetHeight / 2 + "px";
+    // #endregion
+
+    // #region 注册小圆点点击事件
+    for (var i = 0; i < olLis.length; i++) {
+        var olLi = olLis[i];
+        olLi.index = i;
+        olLi.onclick = function () {
+            if (flag) {
+                flag = false;
+                for (var i = 0; i < olLis.length; i++) {
+                    olLis[i].className = "";
+                }
+                this.className = "current";
+                var idx = this.index;
+                var endLoc = -idx * liHeight;
+                animateEnd(ul, { top: endLoc }, function () {
+                    flag = true;
+                });
+                pic = this.index;
+            }
+        }
+    }
+    // #endregion
+
+    // #region 鼠标滚轮事件
+    function down() {
+        if (flag) {
+            flag = false;
+            if (pic == lis.length - 1) {
+                pic = 0;
+                ul.style.top = "0px";
+            }
+            pic++;
+            var endLoc = -(pic * liHeight);
+            animateEnd(ul, { top: endLoc }, function () {
+                flag = true;
+            });
+            for (var i = 0; i < olLis.length; i++) {
+                olLis[i].className = "";
+            }
+            if (pic == lis.length - 1) {
+                olLis[0].className = "current";
+            }
+            else {
+                olLis[pic].className = "current";
+            }
+        }
+    }
+    function up() {
+        if (flag) {
+            flag = false;
+            if (pic == 0) {
+                pic = lis.length - 1;
+                ul.style.top = -pic * liHeight + "px";
+            }
+            pic--;
+            var endLoc = -(pic * liHeight);
+            animateEnd(ul, { top: endLoc }, function () {
+                flag = true;
+            });
+            for (var i = 0; i < olLis.length; i++) {
+                olLis[i].className = "";
+            }
+            olLis[pic].className = "current";
+        }
+    }
+    document.onwheel = function (event) {
+        event = event || window.event;
+        var wheelDelta = event.wheelDelta;
+        if (wheelDelta / Math.abs(wheelDelta) == -1) {
+            down();
+        }
+        else {
+            up();
+        }
+    }
+    // #endregion
+
+    // #region 键盘事件
+    document.onkeydown = function (event) {
+        var e = event || window.event;
+        if (e && e.keyCode == 38) {
+            up();
+        }
+        if (e && e.keyCode == 40) {
+            down();
+        }
+    };
+    // #endregion
+</script>

@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="css/base.css" rel="stylesheet" />
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+        }
+
+        #wallpaper2 {
+            position: fixed;
+            /*width: 2500px;
+            height: 1600px;
+            top: 50%;
+            left: 50%;
+            margin-top: -800px;
+            margin-left: -1250px;*/
+            background: url(images/page1_bg.jpg) no-repeat center center;
+            background-size: 100% 100%;
+            z-index: -11;
+            animation: wallpaper2 360s linear infinite;
+        }
+
+        @keyframes wallpaper2 {
+            0% {
+                transform: rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: rotate(3600deg);
+                opacity: 1;
+            }
+        }
+
+        #box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+            #box .list {
+                width: 300px;
+                height: 510px;
+                text-align: center;
+                margin: 10px 0;
+                float: left;
+                cursor: pointer;
+                overflow: hidden;
+            }
+
+
+
+                #box .list img {
+                    width: 270px;
+                    height: 400px;
+                    transition: transform 1s;
+                    /*-webkit-transition: -webkit-transform 0.5s ease-out;
+                    -moz-transition: -moz-transform 0.5s ease-out;
+                    -o-transition: -o-transform 0.5s ease-out;
+                    -ms-transition: -ms-transform 0.5s ease-out;
+                    animation: 0.5s ease-out;*/
+                }
+
+                #box .list:hover img {
+                    transform: rotate(360deg);
+                    /*-webkit-transform: rotateZ(360deg);
+                    -moz-transform: rotateZ(360deg);
+                    -o-transform: rotateZ(360deg);
+                    -ms-transform: rotateZ(360deg);
+                    transform: rotateZ(360deg);*/
+                }
+
+                #box .list span {
+                    display: block;
+                    height: 22px;
+                    width: 270px;
+                    text-align: center;
+                    line-height: 22px;
+                    transition: transform 1s;
+                    /*animation: 1s ease-out;*/
+                    /*animation-name:;*/
+                    /*animation-duration: 0.5s;*/
+                    /*animation-timing-function:;*/
+                    /*animation-delay:;*/ /*延迟执行 */
+                    /*animation-iteration-count:;*/ /*执行次数*/
+                    /*animation-direction: alternate;*/ /*反向执行 alternate*/
+                }
+
+                #box .list:hover span {
+                    color: #D6C09A;
+                    transform: rotate(360deg);
+                }
+
+        #us {
+            position: fixed;
+            width: 60px;
+            height: 300px;
+            right: 0;
+            top: 50%;
+            margin-top: -150px;
+            cursor: pointer;
+        }
+
+            #us div {
+                position: absolute;
+                right: -190px;
+                width: 250px;
+                height: 60px;
+                transition: transform 2s;
+            }
+
+                #us div:hover {
+                    /*transform: rotateZ(360deg);*/
+                    transform: rotateX(360deg);
+                }
+
+                #us div i {
+                    float: left;
+                    width: 60px;
+                    height: 60px;
+                }
+
+            #us .i1 {
+                background-color: #E0CB00;
+            }
+
+            #us .i2 {
+                background-color: #5ACFFB;
+            }
+
+            #us .i3 {
+                background-color: #FB7381;
+            }
+
+            #us .i4 {
+                background-color: #57E227;
+            }
+
+            #us div span {
+                float: left;
+                height: 60px;
+                line-height: 60px;
+                color: #fff;
+            }
+
+        /**/
+        .actGotop {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 150px;
+            height: 195px;
+            display: none;
+            z-index: 100;
+        }
+
+            .actGotop a, .actGotop a:link {
+                width: 150px;
+                height: 195px;
+                display: inline-block;
+                background: url(images/works/gotop.png) no-repeat;
+                outline: none;
+            }
+
+                .actGotop a:hover {
+                    width: 150px;
+                    height: 195px;
+                    background: url(images/works/gotop.gif) no-repeat;
+                    outline: none;
+                }
+        /**/
+    </style>
+</head>
+<body>
+    <!--<div id="wallpaper1"></div>-->
+    <div id="wallpaper2"></div>
+    <div id="box" class="clearfix">
+        <div class="list"><img src="images/works/01.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/02.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/03.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/04.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/05.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/06.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/07.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/08.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/09.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/10.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/11.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+        <div class="list"><img src="images/works/12.jpg" /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span></div>
+    </div>
+    <div id="us">
+        <div class="i1">
+            <i></i><span>Tel:8888-666</span>
+        </div>
+        <div class="i2">
+            <i></i><span>QQ:123456789</span>
+        </div>
+        <div class="i3">
+            <i></i><span>婚纱摄影</span>
+        </div>
+        <div class="i4">
+            <i></i><span>婚纱摄影</span>
+        </div>
+    </div>
+    <div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+</body>
+</html>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/animate.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var cH = $(window).height();
+        var cW = $(window).width();
+
+        $("#wallpaper2").css({
+            width: 3 * cW + "px",
+            height: 3 * cH + "px",
+            top: cH + "px",
+            left: cW + "px",
+            "margin-top": -(2 * cH) + "px",
+            "margin-left": -(2 * cW) + "px",
+
+        });
+
+        var icons = $("#us div i");
+        icons.each(function (i) {
+            $(this).css("background", "url(images/right/" + (i + 1) + ".jpg) no-repeat center center");
+        });
+        var divIcons = $("#us div");
+        divIcons.each(function (i) {
+
+            $(this).css("top", 60 * i + "px");
+
+            $(this).mouseenter(function () {
+                $(this).animate({
+                    right: "0px"
+                }, 300);
+            });
+
+            $(this).mouseleave(function () {
+                $(this).animate({
+                    right: "-190px"
+                }, 300);
+            })
+        });
+
+        var box = document.getElementById("box");
+        var lists = document.getElementById("box").children;
+        function assgin() {
+            for (var i = 0; i < lists.length; i++) {
+                lists[i].index = i;
+                lists[i].onmouseenter = function () {
+                    var idx = this.index;
+                    lists[idx].style.backgroundColor = "#F2F2F0";
+                    lists[idx].style.boxShadow = "0px 0px 10px 10px #000000";
+                    $(lists[idx].children[0]).stop();
+                    $(lists[idx].children[0]).delay(1000);
+                    $(lists[idx].children[0]).animate({
+                        width: "299px",
+                        height: "447px"
+                    });
+                    //animateEnd(lists[idx].children[0], { width: 299, height: 447 }, function () {
+                    //    lists[idx].style.backgroundColor = "#F2F2F0";
+                    //    lists[idx].style.boxShadow = "0px 0px 10px 10px #000000"
+                    //});
+                }
+                lists[i].onmouseleave = function () {
+                    var idx = this.index;
+                    lists[idx].style.backgroundColor = "";
+                    lists[idx].style.boxShadow = "";
+                    $(lists[idx].children[0]).stop();
+                    $(lists[idx].children[0]).delay(1000);
+                    $(lists[idx].children[0]).animate({
+                        width: "270px",
+                        height: "400px"
+                    });
+                    //animateEnd(this.children[0], { width: 270, height: 400 }, function () {
+                    //    lists[idx].style.backgroundColor = "";
+                    //    lists[idx].style.boxShadow = "0 0 0 0 ";
+                    //});
+                }
+
+                $(lists[i]).click(function () {
+
+                });
+            }
+        }
+        assgin();
+        window.onscroll = function () {
+            var scrollTop = scroll().scrollTop;
+            var pageHeight = client().height;
+            var lastTop = lists[lists.length - 1].offsetTop;
+            if (scrollTop + pageHeight > lastTop) {
+                var datas = [
+                    { "src": "images/works/01.jpg" },
+                    { "src": "images/works/02.jpg" },
+                    { "src": "images/works/03.jpg" },
+                    { "src": "images/works/04.jpg" },
+                    { "src": "images/works/05.jpg" },
+                    { "src": "images/works/06.jpg" },
+                    { "src": "images/works/07.jpg" },
+                    { "src": "images/works/08.jpg" },
+                    { "src": "images/works/09.jpg" },
+                    { "src": "images/works/10.jpg" },
+                    { "src": "images/works/11.jpg" },
+                    { "src": "images/works/12.jpg" }
+                ];
+
+                for (var i = 0; i < datas.length; i++) {
+                    var div = document.createElement("div");
+                    div.className = "list new";
+                    div.style.display = "none";
+                    div.innerHTML = "<img src=" + datas[i].src + " /><span>维尼夫妇</span><span>Orange Photography</span><span>June 15 2016</span>"
+                    box.appendChild(div);
+                }
+                $(".new").slideToggle(1000);
+                assgin();
+            }
+
+
+            if ($(window).scrollTop() >= 100) { //向下滚动像素大于这个值时，即出现小火箭~
+                $('.actGotop').fadeIn(300); //火箭淡入的时间，越小出现的越快~
+            }
+            else {
+                $('.actGotop').fadeOut(300); //火箭淡出的时间，越小消失的越快~
+            }
+        }
+
+        //火箭动画停留时间，越小消失的越快~
+        $('.actGotop').click(function () { $('html,body').animate({ scrollTop: '0px' }, 2000); });
+    });
+</script>

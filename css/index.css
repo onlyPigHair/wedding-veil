@@ -1,0 +1,107 @@
+﻿
+body {
+    /*background: url(images/bge.png) repeat-x;*/
+    overflow: hidden;
+}
+
+#wallpaper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#head {
+    height: 100px;
+    width: 100%;
+    line-height: 50px;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    text-align: center;
+    z-index: 5277;
+}
+
+    #head .logo {
+    }
+
+    #head .nav {
+    }
+
+    #head ul {
+    }
+
+        #head ul li {
+            float: left;
+        }
+
+            #head ul li a {
+                display: block;
+                padding: 0 20px;
+                color: #fff;
+                font-size: 1.5em;
+                /*border-radius: 15px;*/
+                transition: padding 0.5s,font-size 0.5s, box-shadow 0.5s;
+            }
+
+                #head ul li a:hover {
+                    padding: 0 30px;
+                    font-size: 2em;
+                    border-bottom: 1px solid #fff;
+                    /*box-shadow: 0px 0px 10px 10px #888888;*/
+                }
+
+#main {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+    #main ul {
+        width: 100%;
+        height: 5277px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+        #main ul li {
+            list-style: none;
+            width: 100%;
+        }
+
+    #main ol {
+        position: absolute;
+        width: 20px;
+        right: 20px;
+        top: 50%;
+    }
+
+        #main ol li {
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+            #main ol li.current {
+                background-color: deepskyblue;
+            }
+
+#foot {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 150px;
+    z-index: 5277;
+}
